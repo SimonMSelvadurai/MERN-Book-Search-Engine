@@ -20,11 +20,12 @@ const SavedBooks = () => {
 
 	const [userData, setUserData] = useState({});
 
-	const { loading, error, data, refetch } = useQuery(SINGLE_USER, {
+	const { loading, data } = useQuery(SINGLE_USER, {
 		variables: { id: _id },
 		onCompleted: setUserData,
 	});
 
+	// eslint-disable-next-line
 	useEffect(() => {
 		const userData = data?.getSingleUser;
 		setUserData(userData);
